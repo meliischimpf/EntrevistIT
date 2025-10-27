@@ -120,10 +120,12 @@ export default function Interviewer() {
             Prepárate para una entrevista técnica con reconocimiento de voz. 
             Responde a las preguntas hablando y practica tus habilidades de comunicación.
           </p>
-          <div className={styles.languageInfo}>
-            <p>Selecciona un lenguaje de programación para comenzar la entrevista.</p>
-            <p>El asistente de IA generará preguntas técnicas específicas sobre el lenguaje seleccionado.</p>
-          </div>
+          {!selectedLanguage && (
+            <div className={styles.languageInfo}>
+              <p>Selecciona un lenguaje de programación para comenzar la entrevista.</p>
+              <p>El asistente de IA generará preguntas técnicas específicas sobre el lenguaje seleccionado.</p>
+            </div>
+          )}
           <VoiceRecorder
             onTranscriptUpdate={handleTranscriptUpdate}
             isRecording={isRecording}
@@ -136,19 +138,19 @@ export default function Interviewer() {
   }
 
   return (
-    <div className="relative min-h-screen bg-gray-50">
+    <div className="relative min-h-screen">
       <div className="container mx-auto px-4 py-8 h-full">
         <div className="flex flex-col h-[calc(100vh-4rem)]">
           {/* Header */}
-          <div className="bg-white rounded-2xl shadow-lg mb-4">
-            <div className="bg-blue-600 text-white p-4 rounded-t-2xl">
-              <div className="flex justify-between items-center">
-                <h2 className="text-xl font-semibold">
+          <div className="bg-gradient-to-r from-blue-900/90 to-blue-800/90 backdrop-blur-sm rounded-2xl shadow-2xl mb-6 overflow-hidden border border-blue-700/30">
+            <div className="p-4">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <h2 className="text-xl font-semibold text-blue-100">
                   Entrevista sobre: 
-                  <span className="text-blue-100"> {selectedLanguage}</span>
+                  <span className="text-blue-200 font-medium">{selectedLanguage}</span>
                 </h2>
                 <button 
-                  className="flex items-center gap-2 bg-white text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors"
+                  className="flex items-center gap-2 bg-blue-700/50 hover:bg-blue-600/70 text-blue-100 px-4 py-2 rounded-lg font-medium transition-all border border-blue-600/50 hover:border-blue-400/50 backdrop-blur-sm hover:text-white"
                   onClick={handleNextQuestion}
                   disabled={isLoading}
                 >
@@ -164,18 +166,11 @@ export default function Interviewer() {
           </div>
           
           {/* Main Content Area */}
-          <div className={styles.interviewContainer}>
+          <div className="flex-1 flex flex-col bg-blue-900/20 rounded-2xl overflow-hidden shadow-xl">
             {currentQuestion && (
               <>
-                {/* Header */}
-                <div className={styles.interviewHeader}>
-                  <div className={styles.languageBadge}>
-                    Preguntando sobre {selectedLanguage}
-                  </div>
-                </div>
-                
                 {/* Main content - Combined Robot and Question */}
-                <div className={styles.combinedContainer}>
+                <div className="flex-1 flex flex-col">
                   <div className={styles.robotWithQuestion}>
                     <div className={styles.robotScene}>
                       <SplineScene 
@@ -183,14 +178,18 @@ export default function Interviewer() {
                         className="w-full h-full"
                       />
                     </div>
-                    <div className={styles.robotQuestionCard}>
-                      <div className={styles.questionContent}>
-                        <div className={styles.questionText}>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="bg-blue-900/30 backdrop-blur-sm rounded-xl p-6 shadow-inner border border-blue-700/30 flex-1 flex flex-col justify-center">
+                        <div className="text-lg md:text-xl text-blue-50 leading-relaxed mb-6">
                           {currentQuestion.text}
                         </div>
-                        <div className={styles.questionMeta}>
-                          <span className={styles.questionCategory}>{currentQuestion.category}</span>
-                          <span className={styles.questionDifficulty}>{currentQuestion.difficulty}</span>
+                        <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-blue-700/30">
+                          <span className="px-3 py-1 bg-blue-800/50 text-blue-200 text-sm font-medium rounded-full border border-blue-700/50">
+                            {currentQuestion.category}
+                          </span>
+                          <span className="px-3 py-1 bg-amber-900/40 text-amber-200 text-sm font-medium rounded-full border border-amber-800/50">
+                            Dificultad: {currentQuestion.difficulty}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -198,7 +197,7 @@ export default function Interviewer() {
                 </div>
 
                 {/* Voice Recorder */}
-                <div className="border-t border-gray-200 p-4 bg-gray-50">
+                <div className="border-t border-blue-800/30 p-4 bg-blue-900/30 backdrop-blur-sm">
                   {error && (
                     <div className="p-4 text-red-600 bg-red-50 rounded-lg mb-4">
                       {error}

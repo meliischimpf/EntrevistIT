@@ -17,18 +17,21 @@ export function SplineScene({ scene, className, fallback }: SplineSceneProps) {
   }
 
   return (
-    <Suspense 
-      fallback={
-        <div className="w-full h-full flex items-center justify-center">
-          <span className="loader"></span>
-        </div>
-      }
-    >
-      <Spline
-        scene={scene}
-        className={className}
-        onError={() => setHasError(true)}
-      />
-    </Suspense>
+    <div className="w-full h-full bg-transparent">
+      <Suspense 
+        fallback={
+          <div className="w-full h-full flex items-center justify-center bg-transparent">
+            <span className="loader"></span>
+          </div>
+        }
+      >
+        <Spline
+          scene={scene}
+          className={`w-full h-full ${className || ''}`}
+          onError={() => setHasError(true)}
+          style={{ background: 'transparent' }}
+        />
+      </Suspense>
+    </div>
   )
 }
