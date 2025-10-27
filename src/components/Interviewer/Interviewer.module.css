@@ -1,0 +1,356 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e2e8f0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
+}
+
+.interviewContainer {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.interviewContainer {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 2.5rem;
+}
+
+/* Main Container */
+.interviewContainer {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header */
+.interviewHeader {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(90deg, #f8fafc 0%, #f0f9ff 100%);
+}
+
+/* Combined Container */
+.combinedContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  position: relative;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  min-height: 500px;
+}
+
+.robotWithQuestion {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.robotScene {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: transparent;
+}
+
+.robotQuestionCard {
+  padding: 2rem;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.questionContent {
+  background: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  border: 1px solid #e2e8f0;
+}
+
+.questionText {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.questionMeta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.questionCategory,
+.questionDifficulty {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.questionDifficulty {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .combinedContainer {
+    padding: 3rem;
+  }
+  
+  .robotWithQuestion {
+    flex-direction: row;
+    min-height: 500px;
+  }
+  
+  .robotScene {
+    width: 50%;
+    height: auto;
+    border-right: 1px solid #e5e7eb;
+  }
+  
+  .robotQuestionCard {
+    width: 50%;
+    border-top: none;
+    border-left: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .questionContent {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Language Badge */
+.languageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.languageBadge::before {
+  content: '';
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #3b82f6;
+  border-radius: 50%;
+}
+
+/* Header */
+.interviewHeader {
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.languageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f0f9ff;
+  color: #0369a1;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.languageBadge::before {
+  content: '';
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #0ea5e9;
+  border-radius: 50%;
+}
+
+/* Voice Recorder */
+.recorderContainer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.languageInfo {
+  background: rgba(99, 102, 241, 0.1);
+  border-left: 4px solid #6366f1;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.languageInfo p {
+  margin: 0.5rem 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.languageInfo p:first-child {
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.interviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.interviewHeader h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.languageHighlight {
+  color: #818cf8;
+  font-weight: 700;
+}
+
+.nextQuestionButton {
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nextQuestionButton:hover {
+  background: rgba(99, 102, 241, 0.2);
+  transform: translateY(-1px);
+}
+
+.nextQuestionButton:active {
+  transform: translateY(0);
+}
+
+.voiceRecorderContainer {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.startButton {
+  background: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
+}
+
+.startButton:hover {
+  background: #3a5bd9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 108, 247, 0.4);
+}
+
+.startButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .interviewContainer {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
